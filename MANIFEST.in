@@ -1,0 +1,4 @@
+include README*
+include frog_webservice/*.py
+include frog_webservice/*.sh
+include frog_webservice/*.yml
