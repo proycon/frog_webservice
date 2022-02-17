@@ -39,5 +39,5 @@ setup(
     ],
     package_data = {'frog_webservice':['*.wsgi','*.yml','*.sh'] },
     include_package_data=True,
-    install_requires=['CLAM >= 3.1.1']
+    install_requires=['CLAM >= 3.1.1', 'FoLiA-tools']
 )

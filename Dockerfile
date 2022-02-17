@@ -43,7 +43,7 @@ RUN cp /usr/src/webservice/runit.d/nginx.run.sh /etc/service/nginx/run &&\
     chmod a+x /etc/frog_webservice.wsgi &&\
     cp -f /usr/src/webservice/frog_webservice.nginx.conf /etc/nginx/http.d/default.conf
 
-# Install the the service itself
+# Install the the service itself (and foliatools for FoLiA XML visualisation)
 RUN cd /usr/src/webservice && pip install . && rm -Rf /usr/src/webservice
 RUN ln -s /usr/lib/python3.*/site-packages/clam /opt/clam
 
