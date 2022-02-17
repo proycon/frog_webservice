@@ -7,5 +7,7 @@ uwsgi --plugin python3 \
       --master \
       --socket "127.0.0.1:8888" \
       --wsgi-file /etc/frog_webservice.wsgi \
-      --processes $UWSGI_PROCESSES \
-      --threads $UWSGI_THREADS
+      --processes ${UWSGI_PROCESSES:-2} \
+      --threads ${UWSGI_THREADS:-2} \
+      --manage-script-name
+
