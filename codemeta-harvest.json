@@ -1,0 +1,8 @@
+{
+    "softwareRequirements": {
+        "@type": "SoftwareApplication",
+        "identifier": "frog",
+        "name": "frog",
+        "version": ">= 0.24"
+    }
+}
