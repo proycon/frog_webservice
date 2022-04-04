@@ -2,26 +2,35 @@ FROM proycon/frog
 LABEL org.opencontainers.image.authors="Maarten van Gompel <proycon@anaproy.nl>"
 LABEL description="Frog - A Tagger-Lemmatizer-Morphological-Analyzer-Dependency-Parser for Dutch, container image with webservice/webapp"
 
-ARG UWSGI_PROCESSES=2
-ENV UWSGI_PROCESSES=$UWSGI_PROCESSES
-ARG UWSGI_THREADS=2
-ENV UWSGI_THREADS=$UWSGI_THREADS
+ENV UWSGI_PROCESSES=2
+ENV UWSGI_THREADS=2
 
 # By default, data from the webservice will be stored on the mount you provide
-ARG CLAM_ROOT=/data/frog
-ENV CLAM_ROOT=$CLAM_ROOT
-ARG CLAM_PORT=80
-ENV CLAM_PORT=$CLAM_PORT
+ENV CLAM_ROOT=/data/frog
+ENV CLAM_PORT=80
 # (set to true or false, enable this if you run behind a properly configured reverse proxy only)
-ARG CLAM_USE_FORWARDED_HOST=false
-ENV CLAM_USE_FORWARDED_HOST=$CLAM_USE_FORWARDED_HOST
+ENV CLAM_USE_FORWARDED_HOST=false
 # Set this for interoperability with the CLARIN Switchboard
-ARG CLAM_SWITCHBOARD_FORWARD_URL=""
-ENV CLAM_SWITCHBOARD_FORWARD_URL=$CLAM_SWITCHBOARD_FORWARD_URL
+ENV CLAM_SWITCHBOARD_FORWARD_URL=""
 
+# By default, there is no authentication on the service,
+# which is most likely not what you want if you aim to
+# deploy this in a production environment.
+# You can connect your own Oauth2/OpenID Connect authorization by setting the following environment parameters:
+ENV CLAM_OAUTH=false
+#^-- set to true to enable
+ENV CLAM_OAUTH_AUTH_URL=""
+#^-- example for clariah: https://authentication.clariah.nl/Saml2/OIDC/authorization
+ENV CLAM_OAUTH_TOKEN_URL=""
+#^-- example for clariah https://authentication.clariah.nl/OIDC/token
+ENV CLAM_OAUTH_USERINFO_URL=""
+#^--- example for clariah: https://authentication.clariah.nl/OIDC/userinfo
+ENV CLAM_OAUTH_CLIENT_ID=""
+ENV CLAM_OAUTH_CLIENT_SECRET=""
+#^-- always keep this private!
 
 # Install all global dependencies
-RUN apk update && apk add runit curl ca-certificates nginx uwsgi uwsgi-python3 py3-pip py3-yaml py3-lxml py3-requests
+RUN apk update && apk add runit curl ca-certificates nginx uwsgi uwsgi-python3 py3-pip py3-yaml py3-lxml py3-requests py3-numpy py3-wheel
 
 # Prepare environment
 RUN mkdir -p /etc/service/nginx /etc/service/uwsgi
