@@ -2,6 +2,8 @@ FROM proycon/frog
 LABEL org.opencontainers.image.authors="Maarten van Gompel <proycon@anaproy.nl>"
 LABEL description="Frog - A Tagger-Lemmatizer-Morphological-Analyzer-Dependency-Parser for Dutch, container image with webservice/webapp"
 
+ENV UWSGI_UID=100
+ENV UWSGI_GID=100
 ENV UWSGI_PROCESSES=2
 ENV UWSGI_THREADS=2
 
