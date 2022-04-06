@@ -39,5 +39,5 @@ setup(
     ],
     package_data = {'frog_webservice':['*.wsgi','*.yml','*.sh'] },
     include_package_data=True,
-    install_requires=['CLAM >= 3.1.1', 'FoLiA-tools'] #Frog is also required but is an external dependency that setuptools can't handle, we specify it in codemeta-harvest.json for metadata harvesting purposes
+    install_requires=['CLAM >= 3.1.2', 'FoLiA-tools'] #Frog is also required but is an external dependency that setuptools can't handle, we specify it in codemeta-harvest.json for metadata harvesting purposes
 )
