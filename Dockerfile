@@ -59,8 +59,8 @@ RUN cp /usr/src/webservice/runit.d/nginx.run.sh /etc/service/nginx/run &&\
 
 # Install the service itself (and foliatools for FoLiA XML visualisation)
 RUN if [ $CLAM_DEV -eq 1 ]; then pip install git+https://github.com/proycon/clam.git; fi &&\
-    cd /usr/src/webservice && pip install . && rm -Rf /usr/src/webservice
-RUN ln -s /usr/lib/python3.*/site-packages/clam /opt/clam
+    cd /usr/src/webservice && pip install . && rm -Rf /usr/src/webservice &&\
+    ln -s /usr/lib/python3.*/site-packages/clam /opt/clam
 
 VOLUME ["/data"]
 EXPOSE 80
