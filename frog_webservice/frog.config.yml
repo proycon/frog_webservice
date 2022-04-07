@@ -6,6 +6,8 @@ root: "{{CLAM_ROOT=/tmp}}/frog_webservice-userdata"
 port: "{{CLAM_PORT=8080}}"
 use_forwarded_host: "{{CLAM_USE_FORWARDED_HOST|bool=false}}" #(set to true or false, enable this if you run behind a properly configured reverse proxy only)
 switchboard_forward_url: "{{CLAM_SWITCHBOARD_FORWARD_URL}}" #e.g. "https://switchboard.clarin.eu/#/frog/$BACKLINK/$MIMETYPE/nld"
+flaturl: "{{FLATURL}}"
+debug: "{{CLAM_DEBUG|bool=false}}"
 oauth: "{{CLAM_OAUTH|bool=false}}"
 oauth_client_id: "{{CLAM_OAUTH_CLIENT_ID}}"
 oauth_client_secret: "{{CLAM_OAUTH_CLIENT_SECRET}}"
