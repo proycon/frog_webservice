@@ -31,8 +31,11 @@ ENV CLAM_OAUTH_CLIENT_ID=""
 ENV CLAM_OAUTH_CLIENT_SECRET=""
 #^-- always keep this private!
 
+#Set to 1 to enable development version of CLAM
+ARG CLAM_DEV=0
+
 # Install all global dependencies
-RUN apk update && apk add runit curl ca-certificates nginx uwsgi uwsgi-python3 py3-pip py3-yaml py3-lxml py3-requests py3-numpy py3-wheel
+RUN apk update && apk add git runit curl ca-certificates nginx uwsgi uwsgi-python3 py3-pip py3-yaml py3-lxml py3-requests py3-numpy py3-wheel
 
 # Prepare environment
 RUN mkdir -p /etc/service/nginx /etc/service/uwsgi
@@ -54,8 +57,9 @@ RUN cp /usr/src/webservice/runit.d/nginx.run.sh /etc/service/nginx/run &&\
     chmod a+x /etc/frog_webservice.wsgi &&\
     cp -f /usr/src/webservice/frog_webservice.nginx.conf /etc/nginx/http.d/default.conf
 
-# Install the the service itself (and foliatools for FoLiA XML visualisation)
-RUN cd /usr/src/webservice && pip install . && rm -Rf /usr/src/webservice
+# Install the service itself (and foliatools for FoLiA XML visualisation)
+RUN if [ $CLAM_DEV -eq 1 ]; then pip install git+https://github.com/proycon/clam.git; fi &&\
+    cd /usr/src/webservice && pip install . && rm -Rf /usr/src/webservice
 RUN ln -s /usr/lib/python3.*/site-packages/clam /opt/clam
 
 VOLUME ["/data"]
