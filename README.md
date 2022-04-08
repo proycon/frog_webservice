@@ -37,7 +37,7 @@ Consult the [Dockerfile](Dockerfile) for various build-time parameters that you 
 When running, mount the path where you want the user data stored into the container, a directory `frog` will be created here:
 
 ``
-$ docker build -p 8080:80 -v /path/to/data/dir:/data
+$ docker run -p 8080:80 -v /path/to/data/dir:/data proycon/frog_webservice
 ``
 
 
