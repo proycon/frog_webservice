@@ -26,7 +26,7 @@ import frog_webservice
 import os
 from base64 import b64decode as D
 
-REQUIRE_VERSION = "3.1.1"
+REQUIRE_VERSION = "3.1.4"
 WRAPPERDIR = frog_webservice.__path__[0]
 
 #============== General metadata =================
@@ -34,6 +34,8 @@ WRAPPERDIR = frog_webservice.__path__[0]
 SYSTEM_ID = "frog"
 SYSTEM_NAME = "Frog"
 SYSTEM_DESCRIPTION = "Frog is a suite containing a tokeniser, Part-of-Speech tagger, lemmatiser, morphological analyser, shallow parser, and dependency parser for Dutch."
+
+SYSTEM_VERSION = "0.2"
 
 SYSTEM_AUTHOR = "Ko van der Sloot, Antal van den Bosch, Maarten van Gompel, Bertjan Busser"
 
