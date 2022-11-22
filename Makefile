@@ -1,8 +1,8 @@
 docker:
-	docker build -t proycon/frog_webservice:latest .
+	docker build --no-cache -t proycon/frog_webservice:latest .
 
 docker-dev:
-	docker build -t proycon/frog_webservice:dev --build-arg VERSION=development .
+	docker build --no-cache -t proycon/frog_webservice:dev --build-arg VERSION=development .
 
 deps:
 	./build-deps.sh
