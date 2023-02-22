@@ -15,7 +15,7 @@ def getreadme():
 
 setup(
     name = "Frog Webservice",
-    version = "2.3", #make sure SYSTEM_VERSION in your service configuration is set to the same value!
+    version = "2.4", #make sure SYSTEM_VERSION in your service configuration is set to the same value!
     author = "Maarten van Gompel", #adapt this
     description = ("Frog is a suite containing a tokeniser, Part-of-Speech tagger, lemmatiser, morphological analyser, shallow parser, and dependency parser for Dutch. This is the webservice for it, for both humans and machines."),
     license = "GPLv3",
@@ -39,5 +39,5 @@ setup(
     ],
     package_data = {'frog_webservice':['*.wsgi','*.yml','*.sh'] },
     include_package_data=True,
-    install_requires=['CLAM >= 3.1.4', 'FoLiA-tools'] #Frog is also required but is an external dependency that setuptools can't handle, we specify it in codemeta-harvest.json for metadata harvesting purposes
+    install_requires=['CLAM >= 3.2.4', 'FoLiA-tools'] #Frog is also required but is an external dependency that setuptools can't handle, we specify it in codemeta-harvest.json for metadata harvesting purposes
 )

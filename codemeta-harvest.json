@@ -7,6 +7,55 @@
         "@type": "SoftwareApplication",
         "identifier": "frog",
         "name": "frog",
-        "version": ">= 0.24"
+        "version": ">= 0.27"
+    },
+	"funding": [
+		{
+			"@type": "Grant",
+			"name": "CLARIN-NL (NWO grant 184.021.003)",
+			"url": "https://www.clariah.nl",
+            "funder": {
+                "@type": "Organization",
+                "name": "NWO", 
+                "url": "https://www.nwo.nl"
+            }
+		},
+		{
+			"@type": "Grant",
+			"name": "CLARIAH-CORE (NWO grant 184.033.101)",
+			"url": "https://www.clariah.nl",
+            "funder": {
+                "@type": "Organization",
+                "name": "NWO", 
+                "url": "https://www.nwo.nl"
+            }
+        },
+        {
+            "@type": "Grant",
+            "name": "CLARIAH-PLUS (NWO grant 184.034.023)",
+            "funder": {
+                "@type": "Organization",
+                "name": "NWO", 
+                "url": "https://www.nwo.nl"
+            }
+        }
+	],
+    "applicationCategory": [ "https://vocabs.dariah.eu/tadirah/annotating", "https://vocabs.dariah.eu/tadirah/tagging", "https://vocabs.dariah.eu/tadirah/namedEntityRecognition", "https://vocabs.dariah.eu/tadirah/posTagging", "https://vocabs.dariah.eu/tadirah/segmenting", "https://vocabs.dariah.eu/tadirah/treeTagging", "https://vocabs.dariah.eu/tadirah/contextualizing" , "https://w3id.org/nwo-research-fields#Linguistics", "https://w3id.org/nwo-research-fields#TextualAndContentAnalysis" ],
+	"developmentStatus": [ "https://www.repostatus.org/#active", "https://w3id.org/research-technology-readiness-levels#Level8Complete" ],
+    "producer": {
+        "@id": "https://huc.knaw.nl",
+        "@type": "Organization",
+        "name": "KNAW Humanities Cluster",
+        "url": "https://huc.knaw.nl",
+        "parentOrganization": {
+            "@id": "https://knaw.nl",
+            "@type": "Organization",
+            "name": "KNAW",
+            "url": "https://knaw.nl",
+            "location": {
+                "@type": "Place",
+                "name": "Amsterdam"
+            }
+        }
     }
 }
