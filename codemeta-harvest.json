@@ -7,7 +7,7 @@
         "@type": "SoftwareApplication",
         "identifier": "frog",
         "name": "frog",
-        "version": ">= 0.27"
+        "version": ">= 0.28"
     },
 	"funding": [
 		{
