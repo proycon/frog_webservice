@@ -35,7 +35,7 @@ ENV CLAM_OAUTH_CLIENT_SECRET=""
 ARG CLAM_DEV=0
 
 # Install all global dependencies
-RUN apk update && apk add git runit curl ca-certificates nginx uwsgi uwsgi-python3 py3-pip py3-yaml py3-lxml py3-requests py3-numpy py3-wheel
+RUN apk update && apk add git runit curl ca-certificates nginx uwsgi uwsgi-python3 py3-pip py3-yaml py3-lxml py3-requests py3-numpy py3-wheel zip
 
 # Prepare environment
 RUN mkdir -p /etc/service/nginx /etc/service/uwsgi
