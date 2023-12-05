@@ -15,7 +15,7 @@ def getreadme():
 
 setup(
     name = "Frog Webservice",
-    version = "2.6", #make sure SYSTEM_VERSION in your service configuration is set to the same value!
+    version = "2.7", #make sure SYSTEM_VERSION in your service configuration is set to the same value!
     author = "Maarten van Gompel", #adapt this
     description = ("Frog is a suite containing a tokeniser, Part-of-Speech tagger, lemmatiser, morphological analyser, shallow parser, and dependency parser for Dutch. This is the webservice for it, for both humans and machines."),
     license = "GPLv3",

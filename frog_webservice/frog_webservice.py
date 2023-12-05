@@ -35,7 +35,7 @@ SYSTEM_ID = "frog"
 SYSTEM_NAME = "Frog Webservice"
 SYSTEM_DESCRIPTION = "Frog is a suite containing a tokeniser, Part-of-Speech tagger, lemmatiser, morphological analyser, shallow parser, and dependency parser for Dutch."
 
-SYSTEM_VERSION = "2.6"
+SYSTEM_VERSION = "2.7"
 
 SYSTEM_AUTHOR = "Ko van der Sloot, Antal van den Bosch, Maarten van Gompel, Bertjan Busser"
 
@@ -55,16 +55,16 @@ CUSTOMHTML_INDEX = """
 <p><strong>Frog</strong> is an integration of memory-based natural
 language processing (NLP) modules developed for Dutch. All NLP modules are
 based on <strong>Timbl</strong>, the Tilburg memory-based learning software package. Most
-modules were created in the 1990s at the <a href="http://ilk.uvt.nl">ILK Research Group</a> (Tilburg
-University, the Netherlands) and the <a href="http://www.clips.ua.ac.be">CLiPS Research Centre</a> (University of
+modules were created in the 1990s at the ILK Research Group (Tilburg
+University, the Netherlands) and the <a href="https://www.uantwerpen.be/en/research-groups/clips/">CLiPS Research Centre</a> (University of
 Antwerp, Belgium). Over the years they have been integrated into a single text
 processing tool. It is currently maintained by the <a href="https://huc.knaw.nl">KNAW Humanities Cluster</a> and the <a href="http://www.ru.nl/clst">Centre for Language and Speech Technology</a> of <a href="http://cls.ru.nl">Radboud University Nijmegen</a>. A dependency parser, a base phrase chunker, and a named-entity recognizer module were also implemented. Where possible, Frog makes use of
 multi-processor support to run subtasks in parallel.</p>
 
 <p>Various (re)programming rounds have been made possible through funding by
-<a href="http://www.nwo.nl">NWO</a>, the Netherlands Organisation for Scientific Research, particularly under
+<a href="https://www.nwo.nl">NWO</a>, the Netherlands Organisation for Scientific Research, particularly under
 the CGN project, the IMIX programme, the <a href="http://ilk.uvt.nl/il">Implicit Linguistics project</a>, the
-<a href="http://www.clarin.nl">CLARIN-NL</a> programme and the <a href="http://www.clariah.nl">CLARIAH</a> programme.</p>
+<a href="https://www.clarin.nl">CLARIN-NL</a> project and the <a href="https://www.clariah.nl">CLARIAH</a> project.</p>
 """
 
 USERS = None
