@@ -2,9 +2,9 @@
 
 # Frog Webservice
 
-**Website:** https://languagemachines.github.io/frog
+**Website:** <https://languagemachines.github.io/frog>
 
-This is the webservice for [Frog](https://github.com/LanguageMachines/frog), powered by [CLAM](https://github.com/proycon/clam). It offers a RESTful API as well as a web-interface for human end-users.
+This is the webservice for [Frog](https://github.com/LanguageMachines/frog), powered by [CLAM](https://codeberg.org/proycon/clam). It offers a RESTful API as well as a web-interface for human end-users.
 
 ## Installation
 
@@ -13,7 +13,7 @@ This is the webservice for [Frog](https://github.com/LanguageMachines/frog), pow
 Clone this repository and install the webservice as follows:
 
 ```
-$ make
+$ make run
 ```
 
 Navigate to ``http://localhost:8080``.
@@ -27,7 +27,7 @@ A ``Dockerfile`` is provided for deployment in production environments.
 From the repository root, build as follows:
 
 ``
-$ docker build -t proycon/frog_webservice .
+$ make docker
 ``
 
 Consult the [Dockerfile](Dockerfile) for various build-time parameters that you may want to set for your own production environment.
