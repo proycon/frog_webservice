@@ -10,12 +10,10 @@ This is the webservice for [Frog](https://github.com/LanguageMachines/frog), pow
 
 ### Development
 
-Clone this repository, create a virtual environment and install the webservice as follows:
+Clone this repository and install the webservice as follows:
 
 ```
-$ python3 -m venv env
-$ . env/bin/activate
-$ ./startserver_development.sh
+$ make
 ```
 
 Navigate to ``http://localhost:8080``.

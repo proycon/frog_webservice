@@ -1,0 +1,160 @@
+#Note: Certain values in this TOML reference environment variables. If you see such variables (dollar syntax), it means
+#      this file is still a template that needs to be passed through envsubst first before being accepted by CLAM.
+
+name = "Frog Service"
+description = "Frog is a suite containing a tokeniser, Part-of-Speech tagger, lemmatiser, morphological analyser, shallow parser, and dependency parser for Dutch. This is the webservice for it, for both humans and machines."
+authors = [ "Maarten van Gompel" ]
+affiliation = "CLST, Radboud University"
+termsofservice = "$CLAM_TERMS_OF_SERVICE"
+listen = "$CLAM_LISTEN"
+#url is required if oauth is enabled, it must not have a trailing slash
+url = "$CLAM_URL"
+rootdir = "$CLAM_ROOT"
+version = "3.0"
+
+[license]
+name = "GNU Affero General Public License"
+id = "AGPL-3.0-only"
+url = "https://www.gnu.org/licenses/agpl-3.0.en.html"
+
+[contact]
+name = "Maarten van Gompel"
+url = "https://proycon.anaproy.nl"
+email = "proycon@anaproy.nl"
+
+[auth]
+user_file = "$CLAM_USER_FILE"
+salt = "$CLAM_SALT"
+oauth_config_file = "$CLAM_OIDC_CONFIG_FILE"
+
+[[filetypes]]
+id = "txt"
+name = "Plain Text (UTF-8)"
+contenttype = "text/plain; charset=utf-8"
+
+[[filetypes]]
+id = "folia"
+name = "FoLiA XML"
+contenttype = "text/xml"
+
+[[filetypes]]
+id = "tsv"
+name = "Columned output (tab separated values)"
+contenttype = "text/plain"
+
+
+#---------------------------------------------------------------------------------
+
+[[endpoints]]
+name = "landingpage"
+path = "/"
+mode = "LandingPage"
+public = true
+
+#--------------------------------------------------------------------------------
+
+[[endpoints]]
+name = "Frog"
+description = "NLP enrichment for dutch texts"
+path = "/"  #project name will be appended automatically
+mode = "Project"
+status_pattern = ".*" #every line from stderr qualifies as a status message
+command = "./frogservice_wrapper.sh"
+public = false
+
+[[endpoints.parameters]]
+id = "bool"
+name = "Skip tokeniser"
+description = "Disables tokenisation, you can use this if your input is already tokenised"
+required = false
+type = { parametertype = "Bool", default = false }
+flag = "-T"
+
+[[endpoints.parameters]]
+id = "bool"
+name = "Skip lemmatiser"
+description = "Disables lemmatisation"
+required = false
+type = { parametertype = "Bool", default = false }
+flag = "-L"
+
+[[endpoints.parameters]]
+id = "bool"
+name = "Skip morphological analyzer"
+description = "Disables Morphological Analysis"
+required = false
+type = { parametertype = "Bool", default = false }
+flag = "-A"
+
+[[endpoints.parameters]]
+id = "bool"
+name = "Skip chunker"
+description = "Disables chunking (shallow parsing)"
+required = false
+type = { parametertype = "Bool", default = false }
+flag = "-C"
+
+[[endpoints.parameters]]
+id = "bool"
+name = "Skip multi-word-units"
+description = "Disables Multi-Word units"
+required = false
+type = { parametertype = "Bool", default = false }
+flag = "-M"
+
+[[endpoints.parameters]]
+id = "bool"
+name = "Skip named entity recogniser"
+description = "Disables Named Entity Recognizer (improves performance a lot)"
+required = false
+type = { parametertype = "Bool", default = false }
+flag = "-N"
+
+[[endpoints.parameters]]
+id = "bool"
+name = "Skip dependency parsers"
+description = "Disables dependency parser (improves performance a lot)"
+required = false
+type = { parametertype = "Bool", default = false }
+flag = "-P"
+
+[[endpoints.parameters]]
+id = "inputtxt"
+name = "Plain text input"
+description = "The text to be enriched with linguistic annotations"
+required = false
+type = { parametertype = "File", filetype = "txt", filename = { nametype = "Pattern", value = "\\.txt$" } }
+multiple = true
+
+[[endpoints.parameters]]
+id = "inputxml"
+name = "FoLiA XML input"
+description = "The text to be enriched with linguistic annotations"
+required = false
+type = { parametertype = "File", filetype = "folia", filename = { nametype = "Pattern", value = "\\.xml$" } }
+multiple = true
+
+[[endpoints.parameters]]
+id = "output"
+name = "Output format"
+description = "Choose your desired output format: either FoLiA XML (xml) or plain text columned output (tsv)"
+required = true
+flag = "-o"
+
+[endpoints.parameters.type]
+parametertype = "Selection"
+choices = [ "xml","tsv" ]
+default = [ "xml" ]
+
+[[endpoints.outputfiles]]
+name = "Frog Columned Output"
+type = "tsv"
+filename = { nametype = "Pattern", value = "\\.tsv$" }
+
+[[endpoints.outputfiles]]
+name = "FoLiA XML Output"
+type = "xml"
+filename = { nametype = "Pattern", value = "\\.xml$" }
+
+#---------------------------------------------------------------------------------
+
