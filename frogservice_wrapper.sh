@@ -38,9 +38,9 @@ if [ -d inputtxt ]; then
     echo "Processing plain text input files...">&2
     # shellcheck disable=SC2086
     if [ "$outputformat" = "xml" ]; then
-        frog $FROG_OPTS --testdir inputtxt --outputdir=. $FROG_OPTS
+        frog $FROG_OPTS --nostdout --testdir inputtxt --xmldir=. $FROG_OPTS
     else
-        frog $FROG_OPTS --testdir inputtxt --xmldir=. $FROG_OPTS
+        frog $FROG_OPTS --testdir inputtxt --outputdir=. $FROG_OPTS
     fi
 fi
 
@@ -48,7 +48,7 @@ if [ -d inputxml ]; then
     echo "Processing FoLiA XML input files...">&2
     # shellcheck disable=SC2086
     if [ "$outputformat" = "xml" ]; then
-        frog $FROG_OPTS -x inputxml --xmldir=. $FROG_OPTS
+        frog $FROG_OPTS --nostdout -x inputxml --xmldir=. $FROG_OPTS
     else
         frog $FROG_OPTS -x inputxml --outputdir=. $FROG_OPTS
     fi

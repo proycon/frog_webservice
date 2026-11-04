@@ -36,12 +36,19 @@ contenttype = "text/plain; charset=utf-8"
 id = "folia"
 name = "FoLiA XML"
 contenttype = "text/xml"
+viewers = [ "foliaviewer" ]
 
 [[filetypes]]
 id = "tsv"
 name = "Columned output (tab separated values)"
 contenttype = "text/plain"
 
+[[viewers]]
+id = "foliaviewer"
+name = "FoLiA Viewer"
+embed = false
+command = "folia2html"
+args = [ "FILE" ]
 
 #---------------------------------------------------------------------------------
 
@@ -153,7 +160,7 @@ filename = { nametype = "Pattern", value = "\\.tsv$" }
 
 [[endpoints.outputfiles]]
 name = "FoLiA XML Output"
-type = "xml"
+type = "folia"
 filename = { nametype = "Pattern", value = "\\.xml$" }
 
 #---------------------------------------------------------------------------------

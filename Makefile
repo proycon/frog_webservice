@@ -50,4 +50,8 @@ docker-dev:
 
 .PHONY: run
 run: frogservice.toml | install-dependencies
+ifeq ($(GLOBAL_ENV),1)
 	exec clam --config $< $(CLAM_EXTRA)
+else
+	. env/bin/activate && exec clam --config $< $(CLAM_EXTRA)
+endif
