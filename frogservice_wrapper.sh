@@ -61,9 +61,9 @@ for f in *.out; do
     [ "$f" != "*.out" ] && mv "$f" "${f%%.*}.tsv"
 done
 
-#rename output *.xml files
+#rename output *.xml files and remove XSL stylesheet association
 for f in *.xml; do
-    [ "$f" != "*.xml" ] && mv "$f" "${f%%.*}.folia.xml"
+    [ "$f" != "*.xml" ] && sed -i '/xml-stylesheet/d' "$f" && mv "$f" "${f%%.*}.folia.xml"
 done
 
 echo "Done...">&2
