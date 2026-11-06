@@ -54,3 +54,12 @@ ifeq ($(GLOBAL_ENV),1)
 else
 	. env/bin/activate && exec clam --config $< $(CLAM_EXTRA)
 endif
+
+.PHONY: docker-run
+docker-run:
+	docker run -p 8080:8080 --env-file=$(ENV_FILE) -t proycon/frog_webservice:latest
+
+.PHONY: docker-run-dev
+docker-run-dev:
+	docker run -p 8080:8080 --env-file=$(ENV_FILE) -t proycon/frog_webservice:dev
+
