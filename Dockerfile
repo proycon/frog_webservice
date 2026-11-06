@@ -22,7 +22,7 @@ ENV CLAM_TERMS_OF_SERVICE=""
 ENV CLAM_EXTRA=""
 
 # Install all global dependencies, we take Frog from Alpine's repos as well
-RUN apk update && apk add cargo git envsubst curl ca-certificates nginx python3 py3-pip py3-lxml py3-requests py3-wheel zip frog
+RUN apk update && apk add make cargo git envsubst curl ca-certificates nginx python3 py3-pip py3-lxml py3-requests py3-wheel zip frog
 RUN cargo install --root /usr --git https://codeberg.org/proycon/clam --branch clam-4.0
 
 # Temporarily add the sources of this webservice
