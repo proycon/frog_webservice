@@ -36,6 +36,5 @@ RUN cd /var/webservice && GLOBAL_ENV=1 make install-dependencies && chown 1000:1
 
 VOLUME ["/data"]
 EXPOSE 8080
-WORKDIR /
 
 ENTRYPOINT ["./entrypoint.sh"]
