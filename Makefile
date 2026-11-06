@@ -57,9 +57,9 @@ endif
 
 .PHONY: docker-run
 docker-run:
-	docker run -p 8080:8080 --env-file=$(ENV_FILE) -t proycon/frog_webservice:latest
+	docker run -p 8080:8080 --env CLAM_URL=http://127.0.0.1:8080 --env CLAM_LISTEN=0.0.0.0:8080 -t proycon/frog_webservice:latest
 
 .PHONY: docker-run-dev
 docker-run-dev:
-	docker run -p 8080:8080 --env-file=$(ENV_FILE) -t proycon/frog_webservice:dev
+	docker run -p 8080:8080 --env CLAM_URL=http://127.0.0.1:8080 --env CLAM_LISTEN=0.0.0.0:8080 -t proycon/frog_webservice:dev
 
